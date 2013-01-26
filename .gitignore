@@ -1,0 +1,14 @@
+#
+# Apache, MySQL, PHP
+# jozef-mbp
+#
+
+# Apache
+Apache2/
+!Apache2/conf/
+
+# MySQL
+mysql-5.5.29/
+!mysql-5.5.29/my.cnf
+
+!README.md

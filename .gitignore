@@ -24,3 +24,7 @@ Apache2/modules
 # MySQL
 mysql-*/*
 !mysql-*/my.cnf
+
+# PHP
+php-*/*
+!php-*/php.ini

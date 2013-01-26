@@ -3,9 +3,23 @@
 # jozef-mbp
 #
 
+#
 # Apache
-Apache2/
-!Apache2/conf/
+#
+
+# ignore all apache files but conf and htdocs
+Apache2/bin
+Apache2/build
+Apache2/cgi-bin
+#Apache2/conf
+Apache2/error
+#Apache2/htdocs
+Apache2/icons
+Apache2/include
+Apache2/logs
+Apache2/man
+Apache2/manual
+Apache2/modules
 
 # MySQL
 mysql-5.5.29/

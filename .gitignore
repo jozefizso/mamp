@@ -22,7 +22,5 @@ Apache2/manual
 Apache2/modules
 
 # MySQL
-mysql-5.5.29/
-!mysql-5.5.29/my.cnf
-
-!README.md
+mysql-*/*
+!mysql-*/my.cnf

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# vhosts manager for Apache
+#
+
+HTTP_ROOT='/usr/local/apache/vhosts'
+
+ERROR=0
+COMMAND="$1"
+VHOST_NAME="$2"
+TARGET="$3"
+
+if [ ! -d $HTTP_ROOT ];
+then
+    echo "Creating directory for virtual hosts at $HTTP_ROOT"
+    mkdir $HTTP_ROOT
+fi
+
+case $COMMAND in
+add)
+    echo "Creating vhost '$VHOST_NAME' -> '$TARGET'"
+    ln -s "$TARGET" "$HTTP_ROOT/$VHOST_NAME"
+    ERROR=$?
+    ;;
+*)
+    echo "Usage: vhosts add domain path_to_files"
+    ERROR=1
+esac
+
+exit $ERROR

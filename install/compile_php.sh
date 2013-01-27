@@ -163,20 +163,23 @@ cd
 home=${PWD}
 cd ${dir}
 
+php_version=5.4.11
+
 builddir=${PWD}/build/
 bd=${builddir}
 apache_dir=${home}/Applications/Apache2
-mysql_dir=${home}/Applications/MySQL
+mysql_dir=`readlink /usr/local/mysql`
+php_dir=${home}/Applications/php-${php_version}
 
 png_src="libpng-1.5.13.tar.gz"
 jpg_src="jpegsrc.v8d.tar.gz"
 ft_src="freetype-2.4.11.tar.gz"
 gettext_src="gettext-0.18.2.tar.gz"
 curl_src="curl-7.28.1.tar.gz"
-php_src="php-5.4.10.tar.gz"
+php_src="php-5.4.11.tar.gz"
 xz_src="xz-5.0.4.tar.gz"
 xml_src="libxml2-2.8.0.tar.gz" # 2.9 has a bug:  http://stackoverflow.com/questions/12484664/what-am-i-doing-wrong-when-installing-lxml-on-mac-os-x-10-8-1
-mysql_src="mysql-5.5.29.tar.gz" # go to the downlaod page and select "source" from the drop down
+mysql_src="mysql-5.1.67.tar.gz" # go to the downlaod page and select "source" from the drop down
 
 found_sources=1
 check_source() {
@@ -305,7 +308,7 @@ fi
 if [ "$1" = "php" ] ; then 
 
     lib_dir=${dir}/build/lib/
-    dest_dir=${apache_dir}/php
+    dest_dir=${php_dir}
     export PATH="${builddir}/bin/:${PATH}"
     export CFLAGS="-I${builddir}include/"
     export CPPFLAGS=${CFLAGS}

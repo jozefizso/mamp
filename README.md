@@ -1,16 +1,30 @@
 Apache, MySQL, PHP
 ====================
+This is repository with documentation of MAMP server installation in OS X 10.8. I use this configuration on my Mac Book (jozef-mbp).
 
-**Configuration setup for jozef-mbp**
+## Versions
 
-Applications are installed in the **~/Applications/** folder.
+<table>
+  <tr><th>Apache</th><td>2.4.3</td></tr>
+  <tr><th>MySQL</th><td>5.5.29</td></tr>
+  <tr><th>PHP</th><td>5.4.11</td></tr>
+</table>
+
+
+## Configuration documentation
+
+Applications are installed in the **~/Applications/** folder and symblinked into apropriate directories in **/usr/local/**.
 
 Configuration files:
 
-* Apache: ~/Applications/Apache2/conf/httpd.ini
+* Apache: ~/Applications/Apache2/conf/httpd.conf
 * MySQL: ~/Applications/mysql-5.5.29/my.cnf
 * PHP: ~/Applications/php-5.4.11/php.ini
 
+### Apache
+
+Configured with PHP 5.4 support, virtual hosts and mod rewrite.
+Vhosts are located at **/usr/local/apache/vhosts**. Use the `vhosts` script to add new virtual hosts.
 
 
 ### MySQL
@@ -21,7 +35,7 @@ MySQL binaries are installed at ~/Applications/mysql-5.5.29
 
 This directory is aliased to **/usr/local/mysql**
 
-MySQL deamen runs under the mysql/mysql user and group.
+MySQL daemon runs under the mysql/mysql user and group.
 The installation was secured using the mysql_secure_installation script.
 
 **libmysqlclient.18.dylib** library must me symlinked to **/usr/lib**
@@ -30,14 +44,10 @@ The installation was secured using the mysql_secure_installation script.
     
 ### PHP
 
-Installed version: 5.4.11
+Installed version 5.4.11 at ~/Applications/php-5.4.11
 
-Directory: ~/Application/php-5.4.11
-
-<dl>
-  <dt>Alias:</dt>
-  <dd>/usr/local/php -> ~/Application/php-5.4.11/<br>
-      /usr/local/bin/php -> ~/Application/php-5.4.11/bin/php
-  </dd>
-</dl>
-
+<table>
+  <tr><th>Alias</th><th>Target path</th></tr>
+  <tr><td>/usr/local/php</td><td>~/Applications/php-5.4.11/</td></tr>
+  <tr><td>/usr/local/bin/php</td><td>~/Applications/php-5.4.11/bin/php</td></tr>
+</table>

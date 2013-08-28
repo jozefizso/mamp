@@ -26,7 +26,9 @@ ServerRoot "/usr/local/apache"
 #
 # Listen: Allows you to bind Apache to specific IP addresses and/or ports.
 #Listen 12.34.56.78:80
-Listen 8080
+#Listen 127.0.0.1:8080
+#Listen [::1]:8080
+Listen *:8080
 
 #
 # Dynamic Shared Object (DSO) Support
@@ -113,7 +115,6 @@ LoadModule dir_module modules/mod_dir.so
 #LoadModule userdir_module modules/mod_userdir.so
 LoadModule alias_module modules/mod_alias.so
 LoadModule rewrite_module modules/mod_rewrite.so
-LoadModule php5_module modules/libphp5.so
 
 <IfModule unixd_module>
     #
@@ -132,7 +133,7 @@ LoadModule php5_module modules/libphp5.so
 # 'Main' server configuration
 
 ServerAdmin jozef.izso@gmail.com
-ServerName jozef-mbp.local:80
+ServerName jozef-mbp.local:8080
 
 <Directory />
     AllowOverride none
@@ -166,6 +167,7 @@ LogLevel warn
     LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
     LogFormat "%h %l %u %t \"%r\" %>s %b" common
     LogFormat "%>s \"%r\" %Ib %Ob %Dms" measure-time
+    LogFormat "%v (%V) %h - %a - %A - %{Host}i" virtual-host
 
     <IfModule logio_module>
       # You need to enable mod_logio.c to use %I and %O
@@ -173,6 +175,7 @@ LogLevel warn
     </IfModule>
 
     CustomLog "logs/access_log" common
+    CustomLog "logs/vhosts_log" virtual-host
 </IfModule>
 
 <IfModule mime_module>

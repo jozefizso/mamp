@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Metro UI</title>
+
+  <link href="css/modern.css" rel="stylesheet" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/jquery.metrogrid.js"></script>
+  <script>
+
+$(document).ready(function() {
+  $('.tile-group').metrogrid();
+
+  $('.tile[data-href]').on('click', function(e) {
+    var href = $(this).data('href');
+    if (e.ctrlKey || e.metaKey || e.which == 2) {
+      window.open(href, '_blank');
+    } else {
+      window.location.href = href;
+    }
+  });
+})
+
+  </script>
+</head>
+<body class="metrouicss">
+
+  <div class="page secondary fixed-header">
+    <div class="page-header">
+      <div class="page-header-content">
+        <h1>Jozef-MBP Apache Server</h1>
+      </div>
+    </div>
+
+    <div class="page-region">
+      <div class="page-region-content tiles">
+
+        <div class="tile-group">
+          <div class="tile double bg-color-yellow" data-href="http://localhost:8080/adminer">
+            <div class="tile-content">
+              <h2>Adminer - DB Management</h2>
+            </div>
+            <div class="brand">
+              <div class="name">http://server.dev/adminer</div>
+            </div>
+          </div>
+
+          <div class="tile double bg-color-teal" data-href="http://newsletter.adart.dev:8080/">
+            <div class="tile-content">
+              <h2>Adart Newsletter System</h2>
+            </div>
+            <div class="brand">
+              <div class="name">newsletter.adart.dev</div>
+            </div>
+          </div>
+
+          <div class="tile double bg-color-orangeDark" data-href="http://zakazky.adart.dev:8080/">
+            <div class="tile-content">
+              <h2>Zákazkový Systém</h2>
+            </div>
+            <div class="brand">
+              <div class="name">zakazky.adart.dev</div>
+            </div>
+          </div>
+
+          <div class="tile double bg-color-pink" data-href="http://new.izsak.dev:8080/">
+            <div class="tile-content">
+              <h2>izsak.net</h2>
+            </div>
+            <div class="brand">
+              <div class="name">new.izsak.dev</div>
+            </div>
+          </div>
+
+          <div class="tile double bg-color-redLight" data-href="http://new.adart.dev:8080/">
+            <div class="tile-content">
+              <h2>Ad/Art Slovakia</h2>
+            </div>
+            <div class="brand">
+              <div class="name">new.adart.sk</div>
+            </div>
+          </div>
+
+          <div class="tile double bg-color-green" data-href="http://www.fnagro.dev:8080/">
+            <div class="tile-content">
+              <h2>F&N Agro</h2>
+            </div>
+            <div class="brand">
+              <div class="name">www.fnagro.sk</div>
+            </div>
+          </div>
+
+          <div class="tile bg-color-yellow" data-href="/server-status">
+            <div class="tile-content">
+              <h2>Apache Server Status</h2>
+            </div>
+            <div class="brand">
+              <div class="name">http://localhost/server-status</div>
+            </div>
+          </div>
+
+          <!--
+          <div class="tile double bg-color-green" data-href="http://www.fnagro.dev:8080/">
+            <div class="tile-content">
+              <h2>F&N Agro</h2>
+            </div>
+            <div class="brand">
+              <div class="name">www.fnagro.sk</div>
+            </div>
+          </div>
+          -->
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

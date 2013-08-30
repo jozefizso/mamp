@@ -5,9 +5,7 @@
 
 #
 # Apache
-Apache2/*
-!Apache2/conf
-!Apache2/htdocs
+apache/logs
 
 # MySQL
 mysql-*/*

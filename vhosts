@@ -17,13 +17,16 @@ then
 fi
 
 case $COMMAND in
-add)
+create)
     echo "Creating vhost '$VHOST_NAME' -> '$TARGET'"
     ln -s "$TARGET" "$HTTP_ROOT/$VHOST_NAME"
     ERROR=$?
     ;;
+list)
+    ls -1 "$HTTP_ROOT"
+    ;;
 *)
-    echo "Usage: vhosts add domain path_to_files"
+    echo "Usage: vhosts create domain path_to_files"
     ERROR=1
 esac
 
